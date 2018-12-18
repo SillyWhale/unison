@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  unison-srv:
+    image: unison:2.51.2
+    ports:
+      - 2222:22
+    volumes:
+      - ${PWD}/datas:/unison-datas
+    environment:
+      - US_TYPE=server
+      - US_SSHKEY_PUB='Paste your ssh public key here'
+      - US_USER='unison'
+    restart: always
